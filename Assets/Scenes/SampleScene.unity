@@ -568,7 +568,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_Name
-      value: vehicle_playerShip
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_LocalPosition.x
