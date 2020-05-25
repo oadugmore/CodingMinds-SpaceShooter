@@ -1,21 +1,52 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
     public GameObject hazard;
     public Vector3 spawnValues;
     public float spawnRate;
+    public Text scoreText;
+    public Text gameOverText;
+    public Button restartButton;
+
+    private int score;
+    private bool gameOver;
 
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating("SpawnAsteroid", 2, spawnRate);
+        gameOverText.enabled = false;
+        restartButton.gameObject.SetActive(false);
     }
 
     void SpawnAsteroid()
     {
-        Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-        Quaternion spawnRotation = Quaternion.identity;
-        Instantiate(hazard, spawnPosition, spawnRotation);
+        if (!gameOver)
+        {
+            Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+            Quaternion spawnRotation = Quaternion.identity;
+            Instantiate(hazard, spawnPosition, spawnRotation);
+        }
+    }
+
+    public void AsteroidDestroyed()
+    {
+        score++;
+        scoreText.text = "Score: " + score;
+    }
+
+    public void GameOver()
+    {
+        gameOver = true;
+        gameOverText.enabled = true;
+        restartButton.gameObject.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        // reload scene
+        Debug.Log("Restarting...");
     }
 }
