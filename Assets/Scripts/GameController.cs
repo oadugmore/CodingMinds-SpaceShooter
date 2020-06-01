@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -17,7 +18,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         InvokeRepeating("SpawnAsteroid", 2, spawnRate);
-        gameOverText.enabled = false;
+        gameOverText.gameObject.SetActive(false);
         restartButton.gameObject.SetActive(false);
     }
 
@@ -40,13 +41,12 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOver = true;
-        gameOverText.enabled = true;
+        gameOverText.gameObject.SetActive(true);
         restartButton.gameObject.SetActive(true);
     }
 
     public void RestartGame()
     {
-        // reload scene
-        Debug.Log("Restarting...");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
