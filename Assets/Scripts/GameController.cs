@@ -9,13 +9,14 @@ public class GameController : MonoBehaviour
     public Vector3 spawnValues;
     public float spawnRate;
     public float waveRate;
-    public int waveCount;
+    public int startingHazardCount;
     public Text scoreText;
     public Text gameOverText;
     public Button restartButton;
 
     private int score;
     private bool gameOver;
+    private int currentWave = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -29,16 +30,19 @@ public class GameController : MonoBehaviour
     {
         while (true)
         {
-            for (int i = 0; i < waveCount; i++)
+            currentWave++;
+            int extraHazards = currentWave / 5;
+            int hazardCount = startingHazardCount + extraHazards;
+            for (int i = 0; i < hazardCount; i++)
             {
-                SpawnAsteroid();
+                SpawnHazard();
                 yield return new WaitForSeconds(spawnRate);
             }
             yield return new WaitForSeconds(waveRate);
         }
     }
 
-    void SpawnAsteroid()
+    void SpawnHazard()
     {
         if (!gameOver)
         {
