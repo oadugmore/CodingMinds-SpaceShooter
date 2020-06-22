@@ -47,12 +47,12 @@ public class GameController : MonoBehaviour
     {
         if (!gameOver)
         {
-            int hazardsCount = hazards.Length;
+            int hazardsRange = hazards.Length;
             if (currentWave < enemyShipStartWave)
             {
-                hazardsCount--;
+                hazardsRange--;
             }
-            GameObject hazard = hazards[Random.Range(0, hazardsCount)];
+            GameObject hazard = hazards[Random.Range(0, hazardsRange)];
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Quaternion spawnRotation = Quaternion.identity;
             Instantiate(hazard, spawnPosition, spawnRotation);

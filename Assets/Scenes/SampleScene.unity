@@ -684,11 +684,11 @@ MonoBehaviour:
   - {fileID: 2294056387923922627, guid: e5b1f1beadc963d4d8ff3af4ae2422d5, type: 3}
   - {fileID: 2294056387923922627, guid: 21da30d249ebbc94e897416f92bc4ab2, type: 3}
   - {fileID: 3262474484769324934, guid: 1385e5c055382ab48b842fb6ee039a56, type: 3}
-  spawnValues: {x: 6, y: 0, z: 16}
+  spawnValues: {x: 6, y: 0, z: 25}
   spawnRate: 0.3
   waveRate: 5
   startingHazardCount: 5
-  enemyShipStartWave: 5
+  enemyShipStartWave: 1
   scoreText: {fileID: 9035186608636157876}
   gameOverText: {fileID: 9035186609753029843}
   restartButton: {fileID: 9035186610069136697}
