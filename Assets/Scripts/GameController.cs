@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     public float spawnRate;
     public float waveRate;
     public int startingHazardCount;
+    public int enemyShipStartWave;
     public Text scoreText;
     public Text gameOverText;
     public Button restartButton;
@@ -46,16 +47,21 @@ public class GameController : MonoBehaviour
     {
         if (!gameOver)
         {
-            GameObject hazard = hazards[Random.Range(0, hazards.Length)];
+            int hazardsCount = hazards.Length;
+            if (currentWave < enemyShipStartWave)
+            {
+                hazardsCount--;
+            }
+            GameObject hazard = hazards[Random.Range(0, hazardsCount)];
             Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
             Quaternion spawnRotation = Quaternion.identity;
             Instantiate(hazard, spawnPosition, spawnRotation);
         }
     }
 
-    public void AsteroidDestroyed()
+    public void AddScore(int addScore)
     {
-        score++;
+        score += addScore;
         scoreText.text = "Score: " + score;
     }
 

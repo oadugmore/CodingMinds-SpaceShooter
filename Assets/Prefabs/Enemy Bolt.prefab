@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 4921408623747529199}
   - component: {fileID: 1170750555639219796}
   - component: {fileID: 2687591985220110039}
+  - component: {fileID: 5788661336099622805}
   m_Layer: 0
   m_Name: Enemy Bolt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 811bd48f49234754f8dd1ac271a140d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -20
+  speed: 20
 --- !u!82 &2687591985220110039
 AudioSource:
   m_ObjectHideFlags: 0
@@ -174,6 +175,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5788661336099622805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4921408623747529197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6882ac5114bc7540b8cbab3d15610ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
+  playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 3}
+  scoreValue: 0
 --- !u!1 &4921408625366231685
 GameObject:
   m_ObjectHideFlags: 0
